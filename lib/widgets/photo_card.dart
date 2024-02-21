@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/resources/constants.dart';
 
 class PhotoCard extends StatelessWidget {
   const PhotoCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double mySize = MediaQuery.of(context).size.width * (0.20);
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(cardPadding),
       child: Container(
-        width: mySize,
-        height: mySize,
+        width: cardSquareSide,
+        height: cardSquareSide,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: cardBorderRadius,
             image: const DecorationImage(
-              image: NetworkImage('assets/images/my-pic.jpeg'),
+              image: NetworkImage(myPicPath),
+              fit: BoxFit.cover,
             )),
       ),
     );

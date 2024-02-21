@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
+import 'package:my_portfolio/resources/constants.dart';
 import 'package:my_portfolio/resources/style_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -13,7 +14,7 @@ class ContactButton extends StatefulWidget {
 class _ContactButtonState extends State<ContactButton> {
   bool isHover = false;
 
-  final Uri _mailto = Uri.parse('mailto:ghass.karaan@gmail.com');
+  final Uri _mailto = Uri.parse(emailUrl);
 
   Future<void> _launchEmail() async {
     if (!await launchUrl(_mailto)) {
@@ -37,10 +38,7 @@ class _ContactButtonState extends State<ContactButton> {
               //border: Border.all(width: 2, color: Colors.black),
               border: GradientBoxBorder(
                   width: 2,
-                  gradient: LinearGradient(colors: [
-                    Colors.pink[400]!,
-                    Colors.yellow,
-                  ])),
+                  gradient: myGradient),
               color: Colors.white),
           child: Center(
             child: Row(

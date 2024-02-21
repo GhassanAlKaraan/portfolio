@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
-import 'package:my_portfolio/widgets/photo_card.dart';
+import 'package:my_portfolio/resources/constants.dart';
 import 'package:my_portfolio/widgets/contact_button.dart';
-import 'package:my_portfolio/widgets/title_card.dart';
+import 'package:my_portfolio/widgets/job_info.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,21 +12,19 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: ColorManager.background,
         body: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 100.0),
+          padding: EdgeInsets.symmetric(horizontal: scaffoldSizePadding),
           child: Column(
             children: [
               // Contact Button
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [ContactButton()],
+                children: [Padding(
+                  padding: EdgeInsets.only(right: scaffoldSizePadding),
+                  child: ContactButton(),
+                )],
               ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  TitleCard(),
-                  PhotoCard(),
-                ],
-              )
+              SizedBox(height: 35),
+              JobInfo(title: mmJobTitle, duration: mmDuration, imagePath: mmLogoPath,)
             ],
           ),
         ));
