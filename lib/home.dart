@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/constants.dart';
 import 'package:my_portfolio/widgets/contact_button.dart';
-import 'package:my_portfolio/widgets/job_info.dart';
+import 'package:my_portfolio/widgets/dbs_card.dart';
+import 'package:my_portfolio/widgets/langs_card.dart';
+import 'package:my_portfolio/widgets/tools_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -24,7 +26,7 @@ class HomePage extends StatelessWidget {
                 )],
               ),
               SizedBox(height: 35),
-              JobInfo(title: mmJobTitle, duration: mmDuration, imagePath: mmLogoPath,)
+              ToolsCard()
             ],
           ),
         ));

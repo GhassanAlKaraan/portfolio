@@ -11,16 +11,16 @@ class StyleManager {
       const TextStyle(color: Colors.black, fontFamily: "Anta", fontSize: 30);
 
   static TextStyle cardTitle =
-      const TextStyle(color: Colors.black, fontFamily: "Anta", fontSize: 34);
+      const TextStyle(color: Colors.black, fontFamily: "Anta", fontSize: 30);
 
   static TextStyle jobTitle = const TextStyle(
       color: Colors.black,
       fontFamily: "Anta",
       fontWeight: FontWeight.bold,
-      fontSize: 18);
+      fontSize: 12);
   static TextStyle jobDuration = TextStyle(
       color: ColorManager.jobDuration,
       // fontFamily: "Anta",
       fontWeight: FontWeight.bold,
-      fontSize: 16);
+      fontSize: 10);
 }
