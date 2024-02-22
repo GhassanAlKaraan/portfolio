@@ -85,7 +85,7 @@ cardTitleText(title) => LayoutBuilder(
       },
     );
 
-FlutterLebText(title) => LayoutBuilder(
+flutterLebText(title) => LayoutBuilder(
       builder: (context, constraints) {
         double fontSize = 18;
         return Text(

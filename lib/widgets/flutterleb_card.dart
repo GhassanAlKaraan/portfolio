@@ -50,7 +50,7 @@ class FlutterLebCard extends StatelessWidget {
               ? Positioned(
                   left: 10,
                   top: 10,
-                  child: FlutterLebText('Our Flutter Community'))
+                  child: flutterLebText('Our Flutter Community'))
               : Container()
         ]),
       ),
