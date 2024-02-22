@@ -22,7 +22,7 @@ class DesktopScaffold extends StatelessWidget {
     return Scaffold(
         backgroundColor: ColorManager.background,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: specialScaffoldSizePadding),
+          padding: const EdgeInsets.symmetric(horizontal: tabletScaffoldSizePadding),
           child: SingleChildScrollView(
             child: Column(
               children: [

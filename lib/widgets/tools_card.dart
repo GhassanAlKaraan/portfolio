@@ -8,6 +8,7 @@ class ToolsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.width;
     return Padding(
         padding: const EdgeInsets.all(cardPadding),
         child: Container(
@@ -18,11 +19,14 @@ class ToolsCard extends StatelessWidget {
               children: [
                 const SizedBox(height: 20),
                 cardTitleText('Tools'),
-                const Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.all(cardPadding+20),
-                      child: MyGridViewBuilder()
-                    )),
+                Expanded(
+                    flex: size >= 500 ? 7 : 1,
+                    child: const Padding(
+                        padding: EdgeInsets.all(cardPadding + 20),
+                        child: MyGridViewBuilder())),
+                size >= 500
+                    ? Expanded(flex: 5, child: Image.asset(colorfulLaptopPath))
+                    : Container()
                 //const SizedBox(height: 20),
               ],
             ),
@@ -31,18 +35,19 @@ class ToolsCard extends StatelessWidget {
   }
 }
 
-
 class MyGridViewBuilder extends StatelessWidget {
   const MyGridViewBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final double size = MediaQuery.of(context).size.width;
     return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: size >= 500 ? 2 : 3,
         mainAxisSpacing: 15.0, // Vertical spacing between items
         crossAxisSpacing: 10.0, // Horizontal spacing between items
-        childAspectRatio: 1.0, // Ensure square aspect ratio for consistent layout
+        childAspectRatio:
+            1.0, // Ensure square aspect ratio for consistent layout
       ),
       itemCount: toolsIcons.length,
       itemBuilder: (context, index) {

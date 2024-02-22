@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/widgets/dbs_card.dart';
+import 'package:my_portfolio/widgets/flutterleb_card.dart';
 import 'package:my_portfolio/widgets/github_card.dart';
 import 'package:my_portfolio/widgets/jobs_card.dart';
 import 'package:my_portfolio/widgets/langs_card.dart';
@@ -22,7 +23,8 @@ class MobileScaffold extends StatelessWidget {
     return Scaffold(
         backgroundColor: ColorManager.background,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: mobileScaffoldSizePadding),
+          padding:
+              const EdgeInsets.symmetric(horizontal: mobileScaffoldSizePadding),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -39,8 +41,8 @@ class MobileScaffold extends StatelessWidget {
                     width: double.infinity,
                     child: AspectRatio(aspectRatio: 1, child: PhotoCard())),
                 const SizedBox(
-                  
-                    child: AspectRatio(aspectRatio: 1/1.2, child: JobsCard())),
+                    child:
+                        AspectRatio(aspectRatio: 1 / 1.2, child: JobsCard())),
                 const SizedBox(
                     width: double.infinity,
                     child: AspectRatio(aspectRatio: 1, child: LangsCard())),
@@ -63,8 +65,15 @@ class MobileScaffold extends StatelessWidget {
                             const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2),
                         children: [
-                          LinkedinCard(showArrow: false,),
-                          GithubCard(showArrow: false,),
+                          LinkedinCard(
+                            showArrow: false,
+                          ),
+                          GithubCard(
+                            showArrow: false,
+                          ),
+                          FlutterLebCard(
+                            showInfo: false,
+                          ),
                           const ThemeSwitchCard()
                         ],
                       ),

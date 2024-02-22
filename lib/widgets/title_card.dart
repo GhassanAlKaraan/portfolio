@@ -8,6 +8,7 @@ class TitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double size = MediaQuery.of(context).size.width;
     return Padding(
         padding: const EdgeInsets.all(cardPadding),
         child: Container(
@@ -18,11 +19,11 @@ class TitleCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 10),
+                SizedBox(height: size/50),
                 myIconLogo,
-                const SizedBox(height: 20),
+                size >= mobileWidth ? const SizedBox() :const SizedBox(height: 20),
                 myNameText,
-                const SizedBox(height: 30),
+                size >= mobileWidth ? const SizedBox(height: 5) : const SizedBox(height: 30),
                 myTitleText
               ],
             ),

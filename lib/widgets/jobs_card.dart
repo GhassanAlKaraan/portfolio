@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/constants.dart';
 import 'package:my_portfolio/resources/fonts_manager.dart';
-import 'package:my_portfolio/widgets/job_info.dart';
 
 class JobsCard extends StatefulWidget {
   const JobsCard({super.key});
@@ -12,22 +11,9 @@ class JobsCard extends StatefulWidget {
 }
 
 class _JobsCardState extends State<JobsCard> {
-  List<Widget> jobs = [];
-  @override
-  void initState() {
-    super.initState();
-    setState(() {
-      jobs = [
-        const JobInfo(
-            title: gtsJobTitle, duration: gtsDuration, imagePath: gtsLogoPath),
-        const JobInfo(
-            title: mmJobTitle, duration: mmDuration, imagePath: mmLogoPath),
-      ];
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    final double size = MediaQuery.of(context).size.width;
     return Padding(
         padding: const EdgeInsets.all(cardPadding),
         child: Container(
@@ -36,14 +22,25 @@ class _JobsCardState extends State<JobsCard> {
           child: Center(
             child: Column(
               children: [
-                const SizedBox(height: 20),
+                if (size >= 500 && size <= 555)
+                  const SizedBox(height: 0)
+                else
+                  const SizedBox(height: 20),
                 cardTitleText('Jobs'),
-                const SizedBox(height: 10),
-                const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [GTSjob(), SizedBox(width: 40,),MMjob()],
-                ),
+                size < mobileWidth
+                    ? const SizedBox(height: 10)
+                    : const SizedBox(),
+                size < mobileWidth
+                    ? const Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [GTSjob(), SizedBox(width: 40), MMjob()],
+                      )
+                    : const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [GTSjob(), SizedBox(width: 80), MMjob()],
+                      ),
                 const SizedBox(height: 20),
               ],
             ),
@@ -84,7 +81,6 @@ class _MMjobState extends State<MMjob> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      
       children: [
         jobJconLogo(mmLogoPath),
         jobTitleText(mmJobTitle),

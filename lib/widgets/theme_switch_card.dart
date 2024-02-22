@@ -14,6 +14,7 @@ class _ThemeSwitchCardState extends State<ThemeSwitchCard> {
   bool _isToggled = false;
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.all(cardPadding),
       child: Container(
@@ -27,7 +28,7 @@ class _ThemeSwitchCardState extends State<ThemeSwitchCard> {
         value: _isToggled,
         activeColor: ColorManager.bgSwitch,
         inactiveColor: ColorManager.background,
-        thumbSize: 30,
+        thumbSize: size >= 500 ? 50 : 30,
         onToggle: (value) {
           setState(() {
             _isToggled = value;

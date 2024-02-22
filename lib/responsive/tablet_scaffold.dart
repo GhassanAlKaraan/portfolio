@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/widgets/dbs_card.dart';
+import 'package:my_portfolio/widgets/flutterleb_card.dart';
 import 'package:my_portfolio/widgets/github_card.dart';
 import 'package:my_portfolio/widgets/jobs_card.dart';
 import 'package:my_portfolio/widgets/langs_card.dart';
@@ -19,38 +22,59 @@ class TabletScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.width;
+    double extra = size - 500;
+    double padding = mobileScaffoldSizePadding + extra / 4;
     return Scaffold(
         backgroundColor: ColorManager.background,
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: specialScaffoldSizePadding2),
+          padding: EdgeInsets.symmetric(horizontal: padding
+
+              // mobileScaffoldSizePadding
+
+              ),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 // Contact Button
-                const ContactRow(),
+                const ContactRow(), //*
                 const SizedBox(height: 15),
                 const SizedBox(
                     width: double.infinity,
-                    child: AspectRatio(aspectRatio: 1, child: TitleCard())),
-                SizedBox(
-                    width: double.infinity,
-                    child: AspectRatio(aspectRatio: 1, child: ProjectsCard())),
+                    child: AspectRatio(aspectRatio: 2, child: TitleCard())), //*
+                AspectRatio(
+                  aspectRatio: 2,
+                  child: Row(
+                    children: [
+                      AspectRatio(aspectRatio: 1, child: ProjectsCard()),
+                      const AspectRatio(aspectRatio: 1, child: PhotoCard()),
+                    ],
+                  ),
+                ), //*
                 const SizedBox(
-                    width: double.infinity,
-                    child: AspectRatio(aspectRatio: 1, child: PhotoCard())),
-                const SizedBox(
-                  
-                    child: AspectRatio(aspectRatio: 1/1.2, child: JobsCard())),
-                const SizedBox(
-                    width: double.infinity,
-                    child: AspectRatio(aspectRatio: 1, child: LangsCard())),
-                const SizedBox(
-                    width: double.infinity,
-                    child: AspectRatio(aspectRatio: 1, child: DBsCard())),
-                const SizedBox(
-                  width: double.infinity,
-                  child: AspectRatio(aspectRatio: 1, child: ToolsCard()),
+                    child: AspectRatio(aspectRatio: 2, child: JobsCard())), //*
+                const AspectRatio(
+                  aspectRatio: 1,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: AspectRatio(
+                          aspectRatio: 1 / 2,
+                          child: Column(
+                            children: [
+                              AspectRatio(aspectRatio: 1, child: LangsCard()),
+                              AspectRatio(aspectRatio: 1, child: DBsCard()),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                          child: AspectRatio(
+                              aspectRatio: 1 / 2, child: ToolsCard())),
+                    ],
+                  ),
                 ),
+
                 SizedBox(
                   // width: cardSquareSide,
                   width: double.infinity,
@@ -63,14 +87,24 @@ class TabletScaffold extends StatelessWidget {
                             const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2),
                         children: [
-                          LinkedinCard(showArrow: false,),
-                          GithubCard(showArrow: false,),
-                          const ThemeSwitchCard()
+                          LinkedinCard(
+                            showArrow: true,
+                          ),
+                          GithubCard(
+                            showArrow: true,
+                          ),
+                          FlutterLebCard(
+                            showInfo: true,
+                          ),
+                          const ThemeSwitchCard(),
                         ],
                       ),
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 20,
+                )
               ],
             ),
           ),
