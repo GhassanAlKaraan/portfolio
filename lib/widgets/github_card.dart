@@ -34,7 +34,7 @@ class GithubCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Image.asset(
                   githubIconPath,
-                  width: 180,
+                  width: githubIconSize,
                 ),
               ),
             ),
@@ -43,7 +43,7 @@ class GithubCard extends StatelessWidget {
               bottom: 30,
               right: 30,
               child: IconButton(
-                hoverColor: const Color.fromARGB(197, 85, 84, 84),
+                hoverColor: ColorManager.hoverColor,
                 icon: Icon(
                   
                   Icons.arrow_forward,

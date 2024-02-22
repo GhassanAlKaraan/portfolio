@@ -27,7 +27,7 @@ class _ThemeSwitchCardState extends State<ThemeSwitchCard> {
         value: _isToggled,
         activeColor: ColorManager.bgSwitch,
         inactiveColor: ColorManager.background,
-        thumbSize: 60,
+        thumbSize: 40,
         onToggle: (value) {
           setState(() {
             _isToggled = value;

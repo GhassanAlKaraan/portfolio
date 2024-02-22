@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/constants.dart';
-import 'package:my_portfolio/resources/style_manager.dart';
+import 'package:my_portfolio/resources/fonts_manager.dart';
 
 class LangsCard extends StatelessWidget {
   const LangsCard({super.key});
@@ -11,15 +11,13 @@ class LangsCard extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(cardPadding),
         child: Container(
-          height: cardSquareSide,
-          width: cardSquareSide,
           decoration: BoxDecoration(
               color: ColorManager.white, borderRadius: cardBorderRadius),
           child: Center(
             child: Column(
               children: [
                 const SizedBox(height: 20),
-                Text("Languages & FWs", style: StyleManager.cardTitle),
+                cardTitleText('Languages & FWs'),
                 // const SizedBox(height: 20),
                 const Expanded(
                     child: Padding(

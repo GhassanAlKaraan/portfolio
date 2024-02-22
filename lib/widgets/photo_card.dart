@@ -9,8 +9,8 @@ class PhotoCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(cardPadding),
       child: Container(
-        width: cardSquareSide,
-        height: cardSquareSide,
+        // width: cardSquareSide,
+        // height: cardSquareSide,
         decoration: BoxDecoration(
             borderRadius: cardBorderRadius,
             image: const DecorationImage(

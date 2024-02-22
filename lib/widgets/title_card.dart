@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/constants.dart';
-import 'package:my_portfolio/resources/style_manager.dart';
+import 'package:my_portfolio/resources/fonts_manager.dart';
 
 class TitleCard extends StatelessWidget {
   const TitleCard({super.key});
@@ -11,20 +11,19 @@ class TitleCard extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(cardPadding),
         child: Container(
-          height: cardSquareSide,
-          width: cardSquareSide,
           decoration: BoxDecoration(
               color: ColorManager.white, borderRadius: cardBorderRadius),
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 10),
-                Image.asset(devIconPath, width: 200),
+                myIconLogo,
                 const SizedBox(height: 20),
-                GradientText(myFullName,
-                    style: StyleManager.myName, gradient: myGradient),
-                const SizedBox(height: 40),
-                Text(myTitle, style: StyleManager.myTitle)
+                myNameText,
+                const SizedBox(height: 30),
+                myTitleText
               ],
             ),
           ),

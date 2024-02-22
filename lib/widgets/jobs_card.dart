@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/constants.dart';
-import 'package:my_portfolio/resources/style_manager.dart';
+import 'package:my_portfolio/resources/fonts_manager.dart';
 import 'package:my_portfolio/widgets/job_info.dart';
 
 final List<Widget> jobs = [
@@ -18,16 +18,14 @@ class JobsCard extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(cardPadding),
         child: Container(
-          height: cardSquareSide,
-          width: cardSquareSide,
           decoration: BoxDecoration(
               color: ColorManager.white, borderRadius: cardBorderRadius),
           child: Center(
             child: Column(
               children: [
                 const SizedBox(height: 20),
-                Text("Jobs", style: StyleManager.cardTitle),
-                const SizedBox(height: 30),
+                cardTitleText('Jobs'),
+                // const SizedBox(height: 30),
                 Expanded(
                     child: Padding(
                       padding: const EdgeInsets.all(cardPadding),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/constants.dart';
-import 'package:my_portfolio/resources/style_manager.dart';
+import 'package:my_portfolio/resources/fonts_manager.dart';
 
 class ToolsCard extends StatelessWidget {
   const ToolsCard({super.key});
@@ -11,16 +11,13 @@ class ToolsCard extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(cardPadding),
         child: Container(
-          height: cardSquareSide,
-          width: cardSquareSide,
           decoration: BoxDecoration(
               color: ColorManager.white, borderRadius: cardBorderRadius),
           child: Center(
             child: Column(
               children: [
                 const SizedBox(height: 20),
-                Text("Tools", style: StyleManager.cardTitle),
-                // const SizedBox(height: 10),
+                cardTitleText('Tools'),
                 const Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(cardPadding+20),

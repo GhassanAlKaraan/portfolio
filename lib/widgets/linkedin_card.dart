@@ -38,7 +38,7 @@ class LinkedinCard extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Image.asset(
                                 linkedinIconPath,
-                                width: 100,
+                                width: linkedinIconSize,
                               ),
                   )),
             ),
@@ -48,7 +48,7 @@ class LinkedinCard extends StatelessWidget {
                 bottom: 30,
                 right: 30,
                 child: IconButton(
-                  hoverColor: const Color.fromARGB(197, 85, 84, 84),
+                  hoverColor: ColorManager.hoverColor,
                   icon: Icon(
                     
                     Icons.arrow_forward,

@@ -7,6 +7,7 @@ class StyleManager {
 
   static TextStyle myTitle =
       const TextStyle(color: Colors.black, fontFamily: "Anta", fontSize: 22);
+      
   static TextStyle myName =
       const TextStyle(color: Colors.black, fontFamily: "Anta", fontSize: 30);
 

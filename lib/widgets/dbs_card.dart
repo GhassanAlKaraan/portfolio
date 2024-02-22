@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/constants.dart';
-import 'package:my_portfolio/resources/style_manager.dart';
+import 'package:my_portfolio/resources/fonts_manager.dart';
 
 class DBsCard extends StatelessWidget {
   const DBsCard({super.key});
@@ -11,15 +11,15 @@ class DBsCard extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(cardPadding),
         child: Container(
-          height: cardSquareSide,
-          width: cardSquareSide,
+          // height: cardSquareSide,
+          // width: cardSquareSide,
           decoration: BoxDecoration(
               color: ColorManager.white, borderRadius: cardBorderRadius),
           child: Center(
             child: Column(
               children: [
                 const SizedBox(height: 20),
-                Text("Database & BaaS", style: StyleManager.cardTitle),
+                cardTitleText('Database & BaaS'),
                 const SizedBox(height: 50),
                 const Expanded(
                     child: Padding(

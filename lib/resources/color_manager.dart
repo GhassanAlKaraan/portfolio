@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 class ColorManager {
   static Color background = HexColor.fromHex("#EEEAEA");
   static Color white = HexColor.fromHex("#FFFFFF");
+  static Color black = HexColor.fromHex("#000000");
   
 static Color linkedin = HexColor.fromHex("#0075B1");
 static Color github = HexColor.fromHex("#000000");
+
+static Color hoverColor = const Color.fromARGB(197, 194, 194, 194);
 
 static Color disSwitch = HexColor.fromHex("#FFFFFF");
 static Color enSwitch = HexColor.fromHex("#3A3B3C");

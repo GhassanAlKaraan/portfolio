@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/resources/style_manager.dart';
+import 'package:my_portfolio/resources/fonts_manager.dart';
 
 class JobInfo extends StatelessWidget {
   const JobInfo(
@@ -19,17 +19,10 @@ class JobInfo extends StatelessWidget {
       // width: 100,
       child: Column(
         children: [
-          Image.asset(imagePath, height: 80, width: 120),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: StyleManager.jobTitle,
-          ),
+          jobJconLogo(imagePath),
+          jobTitleText(title),
           const SizedBox(height: 8),
-          Text(
-            duration,
-            style: StyleManager.jobDuration,
-          )
+          jobDurationText(duration)
         ],
       ),
     );

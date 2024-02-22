@@ -35,7 +35,7 @@ class _CustomSwitchState extends State<CustomSwitch> {
           color: widget.value ? widget.activeColor : widget.inactiveColor,
         ),
         width: widget.thumbSize * 2.5,
-        height: widget.thumbSize * 1.25,
+        height: widget.thumbSize *1.4,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: AnimatedAlign(
@@ -53,8 +53,8 @@ class _CustomSwitchState extends State<CustomSwitch> {
                     : ColorManager.disSwitch,
               ),
               child: widget.value
-                  ? const Icon(Icons.dark_mode_outlined, color: Colors.white)
-                  : const Icon(Icons.light_mode, color: Colors.orange),
+                  ? const Icon(Icons.dark_mode_outlined, color: Colors.white, size: 18,)
+                  : const Icon(Icons.light_mode, color: Colors.orange, size: 18,),
             ),
           ),
         ),
