@@ -20,7 +20,7 @@ class DBsCard extends StatelessWidget {
               children: [
                 const SizedBox(height: 20),
                 cardTitleText('Database & BaaS'),
-                const SizedBox(height: 50),
+                const SizedBox(height: 30),
                 const Expanded(
                     child: Padding(
                       padding: EdgeInsets.all(cardPadding+20),

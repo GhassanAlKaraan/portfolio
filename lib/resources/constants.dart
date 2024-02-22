@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 // Sizes
+
+
+// TEMP
+const double specialScaffoldSizePadding = 400;
+const double specialScaffoldSizePadding2 = 300;
+
+
+
+
 const double mobileScaffoldSizePadding = 20;
 const double scaffoldSizePadding = 50;
 const double cardPadding = 12.0;
@@ -12,7 +21,7 @@ var socialsIconBorderRadius = BorderRadius.circular(10);
 const double mobileWidth = 500;
 const double tabletWidth = 1000;
 
-const double linkedinIconSize = 70;
+const double linkedinIconSize = 60;
 const double githubIconSize = 100;
 
 /// Assets

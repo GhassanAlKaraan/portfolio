@@ -4,9 +4,9 @@ import 'package:my_portfolio/resources/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class GithubCard extends StatelessWidget {
-  GithubCard({super.key});
+  GithubCard({super.key, required this.showArrow});
 
-
+final bool showArrow;
   final Uri _github = Uri.parse(githubUrl);
 
   Future<void> _launchGithub() async {
@@ -39,6 +39,8 @@ class GithubCard extends StatelessWidget {
               ),
             ),
           ),
+
+          showArrow ?
           Positioned(
               bottom: 30,
               right: 30,
@@ -52,6 +54,8 @@ class GithubCard extends StatelessWidget {
                 ),
                 onPressed: _launchGithub,
               ))
+              :
+              Container()
         ]),
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/resources/fonts_manager.dart';
 
-class JobInfo extends StatelessWidget {
+class JobInfo extends StatefulWidget {
   const JobInfo(
       {super.key,
       required this.title,
@@ -13,16 +13,23 @@ class JobInfo extends StatelessWidget {
   final String imagePath;
 
   @override
+  State<JobInfo> createState() => _JobInfoState();
+}
+
+class _JobInfoState extends State<JobInfo> {
+
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 80,
       // width: 100,
       child: Column(
         children: [
-          jobJconLogo(imagePath),
-          jobTitleText(title),
+          jobJconLogo(widget.imagePath),
+          jobTitleText(widget.title),
           const SizedBox(height: 8),
-          jobDurationText(duration)
+          jobDurationText(widget.duration)
         ],
       ),
     );

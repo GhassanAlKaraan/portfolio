@@ -39,8 +39,8 @@ class MobileScaffold extends StatelessWidget {
                     width: double.infinity,
                     child: AspectRatio(aspectRatio: 1, child: PhotoCard())),
                 const SizedBox(
-                    width: double.infinity,
-                    child: AspectRatio(aspectRatio: 1, child: JobsCard())),
+                  
+                    child: AspectRatio(aspectRatio: 1/1.2, child: JobsCard())),
                 const SizedBox(
                     width: double.infinity,
                     child: AspectRatio(aspectRatio: 1, child: LangsCard())),
@@ -63,8 +63,8 @@ class MobileScaffold extends StatelessWidget {
                             const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2),
                         children: [
-                          LinkedinCard(),
-                          GithubCard(),
+                          LinkedinCard(showArrow: false,),
+                          GithubCard(showArrow: false,),
                           const ThemeSwitchCard()
                         ],
                       ),

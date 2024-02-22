@@ -40,7 +40,7 @@ var myTitleText = LayoutBuilder(
 
 jobJconLogo(path) => LayoutBuilder(
   builder: (context, constraints) {
-    double size = constraints.maxWidth > minScreenWidth ? 80 : 50;
+    double size = constraints.maxWidth > minScreenWidth ? 80 : 60;
 
     return Image.asset(path, width: size+20, height: size);
   },
@@ -48,7 +48,7 @@ jobJconLogo(path) => LayoutBuilder(
 
 jobTitleText(title) => LayoutBuilder(
   builder: (context, constraints) {
-    double fontSize = constraints.maxWidth > minScreenWidth ? 12 : 8;
+    double fontSize = constraints.maxWidth > minScreenWidth ? 12 : 10;
     return Text(
       title,
       textAlign: TextAlign.center,
@@ -61,6 +61,7 @@ jobTitleText(title) => LayoutBuilder(
 jobDurationText(duration) => LayoutBuilder(
   builder: (context, constraints) {
     double fontSize = constraints.maxWidth > minScreenWidth ? 10 : 8;
+ 
     return Text(
       duration,
       style: TextStyle(

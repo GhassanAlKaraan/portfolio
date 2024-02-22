@@ -4,7 +4,9 @@ import 'package:my_portfolio/resources/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LinkedinCard extends StatelessWidget {
-  LinkedinCard({super.key});
+  LinkedinCard({super.key, required this.showArrow});
+  
+final bool showArrow;
 
   final Uri _linkedin = Uri.parse(linkedinUrl);
 
@@ -43,7 +45,7 @@ class LinkedinCard extends StatelessWidget {
                   )),
             ),
           ),
-          
+          showArrow ? 
           Positioned(
                 bottom: 30,
                 right: 30,
@@ -56,7 +58,11 @@ class LinkedinCard extends StatelessWidget {
                     size: 30,
                   ),
                   onPressed: _launchLinkedin,
-                )),]
+                ))
+                :
+                Container()
+                
+                ]
         ),
       ),
     );
