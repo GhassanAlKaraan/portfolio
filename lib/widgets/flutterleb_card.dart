@@ -26,6 +26,7 @@ class FlutterLebCard extends StatelessWidget {
         child: Stack(children: [
           Container(
             decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary,
                 borderRadius: cardBorderRadius,
                 image: const DecorationImage(
                   image: NetworkImage(flutterLebLogoPath),
@@ -40,7 +41,6 @@ class FlutterLebCard extends StatelessWidget {
                     hoverColor: ColorManager.hoverColor,
                     icon: const Icon(
                       Icons.arrow_forward,
-                      color: Colors.black,
                       size: 30,
                     ),
                     onPressed: _launchInstaPage,

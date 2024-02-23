@@ -10,8 +10,6 @@ import 'package:my_portfolio/widgets/projects_card.dart';
 import 'package:my_portfolio/widgets/theme_switch_card.dart';
 import 'package:my_portfolio/widgets/title_card.dart';
 import 'package:my_portfolio/widgets/tools_card.dart';
-
-import '../resources/color_manager.dart';
 import '../resources/constants.dart';
 import '../widgets/contact_row.dart';
 
@@ -21,7 +19,7 @@ class MobileScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorManager.background,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: Padding(
           padding:
               const EdgeInsets.symmetric(horizontal: mobileScaffoldSizePadding),
@@ -42,7 +40,7 @@ class MobileScaffold extends StatelessWidget {
                     child: AspectRatio(aspectRatio: 1, child: PhotoCard())),
                 const SizedBox(
                     child:
-                        AspectRatio(aspectRatio: 1 / 1.2, child: JobsCard())),
+                        AspectRatio(aspectRatio: 1 / 1.3, child: JobsCard())),
                 const SizedBox(
                     width: double.infinity,
                     child: AspectRatio(aspectRatio: 1, child: LangsCard())),

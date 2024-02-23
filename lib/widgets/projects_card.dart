@@ -21,7 +21,7 @@ class ProjectsCard extends StatelessWidget {
         padding: const EdgeInsets.all(cardPadding),
         child: Container(
           decoration: BoxDecoration(
-              color: ColorManager.white, borderRadius: cardBorderRadius),
+              color: Theme.of(context).colorScheme.primary, borderRadius: cardBorderRadius),
           child: Center(
             child: GestureDetector(
               onTap: _launchFigma,
@@ -43,7 +43,6 @@ class ProjectsCard extends StatelessWidget {
                   icon: const Icon(
                     
                     Icons.arrow_forward,
-                    color: Colors.black,
                     size: 30,
                   ),
                   onPressed: _launchFigma,

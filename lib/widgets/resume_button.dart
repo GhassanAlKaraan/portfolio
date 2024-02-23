@@ -37,12 +37,12 @@ class _ResumeButtonState extends State<ResumeButton> {
               borderRadius: BorderRadius.circular(90),
               //border: Border.all(width: 2, color: Colors.black),
               border: GradientBoxBorder(width: 2, gradient: myGradient),
-              color: Colors.white),
+              color: Theme.of(context).colorScheme.primary),
           child: Center(
             child: Row(
               children: [
                 const SizedBox(width: 15),
-                jobTitleText('My Resume'),
+                actionButtonText('My Resume'),
                 const SizedBox(width: 15),
               ],
             ),

@@ -10,8 +10,6 @@ import 'package:my_portfolio/widgets/projects_card.dart';
 import 'package:my_portfolio/widgets/theme_switch_card.dart';
 import 'package:my_portfolio/widgets/title_card.dart';
 import 'package:my_portfolio/widgets/tools_card.dart';
-
-import '../resources/color_manager.dart';
 import '../resources/constants.dart';
 import '../widgets/contact_row.dart';
 
@@ -24,7 +22,7 @@ class TabletScaffold extends StatelessWidget {
     double extra = size - 500;
     double padding = mobileScaffoldSizePadding + extra / 4;
     return Scaffold(
-        backgroundColor: ColorManager.background,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: padding
 

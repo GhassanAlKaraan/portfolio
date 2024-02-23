@@ -39,12 +39,14 @@ class _ContactButtonState extends State<ContactButton> {
               border: GradientBoxBorder(
                   width: 2,
                   gradient: myGradient),
-              color: Colors.white),
+              color: Theme.of(context).colorScheme.primary
+              
+              ),
           child: Center(
             child: Row(
               children: [
                 const SizedBox(width: 15),
-                jobTitleText('Contact'),
+                actionButtonText('Contact'),
                 const SizedBox(width: 15),
               ],
             ),

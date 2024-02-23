@@ -4,7 +4,7 @@ class ColorManager {
 
   // Theme Colors
   static Color background = HexColor.fromHex("#EEEAEA");
-  static Color backgroundDark = HexColor.fromHex("#EEEAEA");
+  static Color backgroundDark = HexColor.fromHex("#161616");
 
 
   static Color primary = HexColor.fromHex("#FFFFFF");

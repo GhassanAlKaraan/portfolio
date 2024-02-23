@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
+import 'package:my_portfolio/resources/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class CustomSwitch extends StatefulWidget {
   final bool value;
@@ -23,10 +25,15 @@ class CustomSwitch extends StatefulWidget {
 }
 
 class _CustomSwitchState extends State<CustomSwitch> {
+  
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => widget.onToggle(!widget.value),
+      onTap: () {
+        widget.onToggle(!widget.value);
+        Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOut,
@@ -35,7 +42,7 @@ class _CustomSwitchState extends State<CustomSwitch> {
           color: widget.value ? widget.activeColor : widget.inactiveColor,
         ),
         width: widget.thumbSize * 2.5,
-        height: widget.thumbSize *1.4,
+        height: widget.thumbSize * 1.4,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: AnimatedAlign(
@@ -53,8 +60,16 @@ class _CustomSwitchState extends State<CustomSwitch> {
                     : ColorManager.disSwitch,
               ),
               child: widget.value
-                  ? const Icon(Icons.dark_mode_outlined, color: Colors.white, size: 18,)
-                  : const Icon(Icons.light_mode, color: Colors.orange, size: 18,),
+                  ? const Icon(
+                      Icons.dark_mode_outlined,
+                      color: Colors.white,
+                      size: 18,
+                    )
+                  : const Icon(
+                      Icons.light_mode,
+                      color: Colors.orange,
+                      size: 18,
+                    ),
             ),
           ),
         ),

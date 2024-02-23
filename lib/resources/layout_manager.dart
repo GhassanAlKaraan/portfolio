@@ -13,10 +13,13 @@ var myIconLogo = LayoutBuilder(
   },
 );
 
-actionButtonText(title) => Text(
-      title,
-      style: const TextStyle(
-          color: Colors.black, fontFamily: "Anta", fontSize: 16),
+actionButtonText(title) => LayoutBuilder(
+      builder: (context, constraints) {
+        return Text(
+          title,
+          style: const TextStyle(fontFamily: "Anta", fontSize: 16),
+        );
+      },
     );
 
 var myNameText = LayoutBuilder(
@@ -25,8 +28,7 @@ var myNameText = LayoutBuilder(
 
     return GradientText(myFullName,
         gradient: myGradient,
-        style: TextStyle(
-            color: Colors.black, fontFamily: "Anta", fontSize: fontSize));
+        style: TextStyle(fontFamily: "Anta", fontSize: fontSize));
   },
 );
 
@@ -35,8 +37,7 @@ var myTitleText = LayoutBuilder(
     double fontSize = constraints.maxWidth > minScreenWidth ? 22 : 16;
     return Text(
       myTitle,
-      style: TextStyle(
-          color: Colors.black, fontFamily: "Anta", fontSize: fontSize),
+      style: TextStyle(fontFamily: "Anta", fontSize: fontSize),
     );
   },
 );
@@ -58,7 +59,6 @@ jobTitleText(title) => LayoutBuilder(
           title,
           textAlign: TextAlign.center,
           style: TextStyle(
-              color: Colors.black,
               fontFamily: "Anta",
               fontWeight: FontWeight.bold,
               fontSize: fontSize),
@@ -85,8 +85,7 @@ cardTitleText(title) => LayoutBuilder(
         double fontSize = constraints.maxWidth > 300 ? 30 : 22;
         return Text(
           title,
-          style: TextStyle(
-              color: Colors.black, fontFamily: "Anta", fontSize: fontSize),
+          style: TextStyle(fontFamily: "Anta", fontSize: fontSize),
         );
       },
     );
@@ -97,7 +96,7 @@ flutterLebText(title) => LayoutBuilder(
         return Text(
           title,
           style: TextStyle(
-              color: Colors.black, fontFamily: "Anta", fontSize: fontSize),
+              fontFamily: "Anta", fontSize: fontSize),
         );
       },
     );

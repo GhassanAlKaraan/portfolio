@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/constants.dart';
 import 'package:my_portfolio/resources/layout_manager.dart';
 
@@ -14,7 +13,7 @@ class DBsCard extends StatelessWidget {
           // height: cardSquareSide,
           // width: cardSquareSide,
           decoration: BoxDecoration(
-              color: ColorManager.white, borderRadius: cardBorderRadius),
+              color: Theme.of(context).colorScheme.primary, borderRadius: cardBorderRadius),
           child: Center(
             child: Column(
               children: [
