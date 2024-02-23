@@ -25,13 +25,16 @@ class FlutterLebCard extends StatelessWidget {
         onTap: _launchInstaPage,
         child: Stack(children: [
           Container(
-            decoration: BoxDecoration(
+decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.primary,
                 borderRadius: cardBorderRadius,
                 image: const DecorationImage(
-                  image: NetworkImage(flutterLebLogoPath),
+                  image: AssetImage(flutterLebLogoPath),
                   fit: BoxFit.cover,
-                )),
+                ),
+                ),
+// child: Expanded(
+//                         child: Image.asset(flutterLebLogoPath)),
           ),
           showInfo
               ? Positioned(
