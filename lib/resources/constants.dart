@@ -82,6 +82,7 @@ const String myTitle = 'Software Developer';
 const String linkedinUrl = 'https://www.linkedin.com/in/ghassan-alkaraan';
 const String githubUrl = 'https://github.com/GhassanAlKaraan';
 const String emailUrl = 'mailto:ghass.karaan@gmail.com';
+const String resumeUrl = 'https://drive.google.com/file/d/1iEt3iOnuIHb7egvlZtm4o6NWUhqXsAMJ/view';
 const String figmaUrl = 'https://www.figma.com/file/L5vY52RBTsRcHnGdV34Lhn/Screenshots';
 const String instaPageUrl = 'https://www.instagram.com/flutterleb/';
 

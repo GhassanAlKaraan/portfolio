@@ -42,6 +42,7 @@ class MyGridViewBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     final double size = MediaQuery.of(context).size.width;
     return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: size >= 500 ? 2 : 3,
         mainAxisSpacing: 15.0, // Vertical spacing between items

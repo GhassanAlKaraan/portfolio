@@ -1,7 +1,7 @@
 # Portfolio
 
-I finally decided to make myself a portfolio.
+Portfolio made with Flutter.
 
-## Note
+## Command to build release version
 
-This project is still in development.
+`flutter build web --web-renderer html --release`

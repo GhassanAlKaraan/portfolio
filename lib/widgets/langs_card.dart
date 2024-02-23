@@ -39,6 +39,7 @@ class MyGridViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3, // 4 items per row
         mainAxisSpacing: 15.0, // Vertical spacing between items

@@ -22,7 +22,7 @@ class DesktopScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size.width;
     double extra = size - 500;
-    double padding = mobileScaffoldSizePadding + extra / 4;
+    double padding = mobileScaffoldSizePadding + extra / 3; // change the value /3 if desired
     return Scaffold(
         backgroundColor: ColorManager.background,
         body: Padding(
@@ -39,7 +39,7 @@ class DesktopScaffold extends StatelessWidget {
                 const SizedBox(height: 15),
                 const SizedBox(
                     width: double.infinity,
-                    child: AspectRatio(aspectRatio: 2, child: TitleCard())), //*
+                    child: AspectRatio(aspectRatio: 2.4, child: TitleCard())), //*
                 AspectRatio(
                   aspectRatio: 2,
                   child: Row(
@@ -50,7 +50,7 @@ class DesktopScaffold extends StatelessWidget {
                   ),
                 ), //*
                 const SizedBox(
-                    child: AspectRatio(aspectRatio: 2, child: JobsCard())), //*
+                    child: AspectRatio(aspectRatio: 2.5, child: JobsCard())), //*
                 const AspectRatio(
                   aspectRatio: 1,
                   child: Row(
@@ -81,6 +81,7 @@ class DesktopScaffold extends StatelessWidget {
                     child: SizedBox(
                       width: cardSquareSide,
                       child: GridView(
+                        physics: const NeverScrollableScrollPhysics(),
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2),
