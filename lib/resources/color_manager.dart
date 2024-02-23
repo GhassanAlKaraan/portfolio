@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
 
 class ColorManager {
+
+  // Theme Colors
   static Color background = HexColor.fromHex("#EEEAEA");
+  static Color backgroundDark = HexColor.fromHex("#EEEAEA");
+
+
+  static Color primary = HexColor.fromHex("#FFFFFF");
+  static Color primaryDark = HexColor.fromHex("#212121");
+
+
+  static Color titleLightMode = HexColor.fromHex("#000000");
+  static Color titleDarkMode = HexColor.fromHex("#FFFFFF");
+
+
+
   static Color white = HexColor.fromHex("#FFFFFF");
-  static Color black = HexColor.fromHex("#000000");
   
 static Color linkedin = HexColor.fromHex("#0075B1");
 static Color github = HexColor.fromHex("#000000");

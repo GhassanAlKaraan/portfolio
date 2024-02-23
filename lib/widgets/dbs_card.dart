@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/constants.dart';
-import 'package:my_portfolio/resources/fonts_manager.dart';
+import 'package:my_portfolio/resources/layout_manager.dart';
 
 class DBsCard extends StatelessWidget {
   const DBsCard({super.key});

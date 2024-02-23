@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:my_portfolio/resources/constants.dart';
-import 'package:my_portfolio/resources/style_manager.dart';
+import 'package:my_portfolio/resources/layout_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactButton extends StatefulWidget {
@@ -44,10 +44,7 @@ class _ContactButtonState extends State<ContactButton> {
             child: Row(
               children: [
                 const SizedBox(width: 15),
-                Text(
-                  "Contact",
-                  style: StyleManager.contactButton,
-                ),
+                jobTitleText('Contact'),
                 const SizedBox(width: 15),
               ],
             ),

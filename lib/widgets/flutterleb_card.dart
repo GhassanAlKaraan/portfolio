@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/constants.dart';
-import 'package:my_portfolio/resources/fonts_manager.dart';
+import 'package:my_portfolio/resources/layout_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class FlutterLebCard extends StatelessWidget {
@@ -38,9 +38,9 @@ class FlutterLebCard extends StatelessWidget {
                   right: 30,
                   child: IconButton(
                     hoverColor: ColorManager.hoverColor,
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_forward,
-                      color: ColorManager.black,
+                      color: Colors.black,
                       size: 30,
                     ),
                     onPressed: _launchInstaPage,

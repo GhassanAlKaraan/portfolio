@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:my_portfolio/resources/constants.dart';
-import 'package:my_portfolio/resources/style_manager.dart';
+import 'package:my_portfolio/resources/layout_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ResumeButton extends StatefulWidget {
@@ -36,18 +36,13 @@ class _ResumeButtonState extends State<ResumeButton> {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(90),
               //border: Border.all(width: 2, color: Colors.black),
-              border: GradientBoxBorder(
-                  width: 2,
-                  gradient: myGradient),
+              border: GradientBoxBorder(width: 2, gradient: myGradient),
               color: Colors.white),
           child: Center(
             child: Row(
               children: [
                 const SizedBox(width: 15),
-                Text(
-                  "My Resume",
-                  style: StyleManager.contactButton,
-                ),
+                jobTitleText('My Resume'),
                 const SizedBox(width: 15),
               ],
             ),

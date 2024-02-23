@@ -13,6 +13,12 @@ var myIconLogo = LayoutBuilder(
   },
 );
 
+actionButtonText(title) => Text(
+      title,
+      style: const TextStyle(
+          color: Colors.black, fontFamily: "Anta", fontSize: 16),
+    );
+
 var myNameText = LayoutBuilder(
   builder: (context, constraints) {
     double fontSize = constraints.maxWidth > minScreenWidth ? 30 : 20;
@@ -23,7 +29,7 @@ var myNameText = LayoutBuilder(
             color: Colors.black, fontFamily: "Anta", fontSize: fontSize));
   },
 );
- 
+
 var myTitleText = LayoutBuilder(
   builder: (context, constraints) {
     double fontSize = constraints.maxWidth > minScreenWidth ? 22 : 16;
