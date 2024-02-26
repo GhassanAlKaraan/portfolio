@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/theme_manager.dart';
 import 'package:my_portfolio/resources/theme_provider.dart';
@@ -11,6 +12,8 @@ import 'package:my_portfolio/widgets/langs_card.dart';
 import 'package:my_portfolio/widgets/linkedin_card.dart';
 import 'package:my_portfolio/widgets/photo_card.dart';
 import 'package:my_portfolio/widgets/projects_card.dart';
+import 'package:my_portfolio/widgets/retro/retro_banner_1.dart';
+import 'package:my_portfolio/widgets/retro/retro_banner_2.dart';
 import 'package:my_portfolio/widgets/theme_switch_card.dart';
 import 'package:my_portfolio/widgets/title_card.dart';
 import 'package:my_portfolio/widgets/tools_card.dart';
@@ -42,103 +45,115 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
     final size = MediaQuery.of(context).size.width;
     double extra = size - 500;
     double padding =
-        mobileScaffoldSizePadding + extra / 3; // change the value /3 if desired
+        mobileScaffoldSizePadding + extra / 3 - 100; // change the value /3 if desired
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: padding),
-            child: Column(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Contact Button
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: CustomSwitch(
-                        value: _isToggled,
-                        activeColor: ColorManager.bgSwitch,
-                        inactiveColor: ColorManager.inactiveSwitch, 
-                        thumbSize: 36,
-                        onToggle: (value) {
-                          setState(() {
-                            _isToggled = value;
-                          });
-                        },
+                const RetroBanner1(),
+                Expanded(
+                  child: Column(
+                    children: [
+                      // Contact Button
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8),
+                            child: CustomSwitch(
+                              value: _isToggled,
+                              activeColor: ColorManager.bgSwitch,
+                              inactiveColor: ColorManager.inactiveSwitch,
+                              thumbSize: 36,
+                              onToggle: (value) {
+                                setState(() {
+                                  _isToggled = value;
+                                });
+                              },
+                            ),
+                          ),
+                          const ContactRow(),
+                        ],
                       ),
-                    ),
-                    const ContactRow(),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                const SizedBox(
-                    width: double.infinity,
-                    child: AspectRatio(aspectRatio: 2.4, child: TitleCard())),
-                AspectRatio(
-                  aspectRatio: 2,
-                  child: Row(
-                    children: [
-                      AspectRatio(aspectRatio: 1, child: ProjectsCard()),
-                      const AspectRatio(aspectRatio: 1, child: PhotoCard()),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                    child: AspectRatio(aspectRatio: 2.5, child: JobsCard())),
-                const AspectRatio(
-                  aspectRatio: 1,
-                  child: Row(
-                    children: [
-                      Expanded(
+                      const SizedBox(height: 15),
+                      const SizedBox(
+                          width: double.infinity,
+                          child:
+                              AspectRatio(aspectRatio: 2.4, child: TitleCard())),
+                      AspectRatio(
+                        aspectRatio: 2,
+                        child: Row(
+                          children: [
+                            AspectRatio(aspectRatio: 1, child: ProjectsCard()),
+                            const AspectRatio(aspectRatio: 1, child: PhotoCard()),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                          child:
+                              AspectRatio(aspectRatio: 2.5, child: JobsCard())),
+                      const AspectRatio(
+                        aspectRatio: 1,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: AspectRatio(
+                                aspectRatio: 1 / 2,
+                                child: Column(
+                                  children: [
+                                    AspectRatio(
+                                        aspectRatio: 1, child: LangsCard()),
+                                    AspectRatio(aspectRatio: 1, child: DBsCard()),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                                child: AspectRatio(
+                                    aspectRatio: 1 / 2, child: ToolsCard())),
+                          ],
+                        ),
+                      ),
+                  
+                      SizedBox(
+                        // width: cardSquareSide,
+                        width: double.infinity,
                         child: AspectRatio(
-                          aspectRatio: 1 / 2,
-                          child: Column(
-                            children: [
-                              AspectRatio(aspectRatio: 1, child: LangsCard()),
-                              AspectRatio(aspectRatio: 1, child: DBsCard()),
-                            ],
+                          aspectRatio: 1,
+                          child: SizedBox(
+                            width: cardSquareSide,
+                            child: GridView(
+                              physics: const NeverScrollableScrollPhysics(),
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2),
+                              children: [
+                                LinkedinCard(
+                                  showArrow: true,
+                                ),
+                                GithubCard(
+                                  showArrow: true,
+                                ),
+                                FlutterLebCard(
+                                  showInfo: true,
+                                ),
+                                const ThemeSwitchCard(),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Expanded(
-                          child: AspectRatio(
-                              aspectRatio: 1 / 2, child: ToolsCard())),
+                      const SizedBox(
+                        height: 20,
+                      )
                     ],
                   ),
                 ),
-
-                SizedBox(
-                  // width: cardSquareSide,
-                  width: double.infinity,
-                  child: AspectRatio(
-                    aspectRatio: 1,
-                    child: SizedBox(
-                      width: cardSquareSide,
-                      child: GridView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2),
-                        children: [
-                          LinkedinCard(
-                            showArrow: true,
-                          ),
-                          GithubCard(
-                            showArrow: true,
-                          ),
-                          FlutterLebCard(
-                            showInfo: true,
-                          ), 
-                          const ThemeSwitchCard(),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                )
+                const RetroBanner2()
               ],
             ),
           ),

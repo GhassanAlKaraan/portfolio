@@ -20,6 +20,15 @@ const double linkedinIconSize = 60;
 const double githubIconSize = 100;
 
 /// Assets
+
+// Retro game icons
+const String ghost1 = 'icons/retro-icons/ghost1.png';
+const String ghost2 = 'icons/retro-icons/ghost2.png';
+const String pacman = 'icons/retro-icons/pacman.png';
+const String spaceBug = 'icons/retro-icons/space-bug.png';
+
+
+
 // Images
 const String myPicPath = 'assets/images/my-pic.jpeg';
 const String devIconPath = 'assets/images/dev-laptop-icon.png';
@@ -29,7 +38,7 @@ const String projectsPath = 'assets/images/projects.png';
 const String colorfulLaptopPath = 'assets/images/colorful-laptop.png';
 const String flutterLebLogoPath = 'assets/images/flutterleb-logo.png';
 
-// Icons
+// Job Icons
 const String githubIconPath = 'assets/icons/github.png';
 const String linkedinIconPath = 'assets/icons/linkedin.png';
 
@@ -66,7 +75,7 @@ final Widget linuxSVG = SvgPicture.asset(linuxIcon, semanticsLabel: 'Linux Logo'
 // Category Lists of icons
 final List<Widget> langsAndFWsIcons = [flutterSVG, dartSVG, nodeSVG,javascriptSVG, javaSVG, pythonSVG];
 final List<Widget> dbsAndServicesIcons = [firebaseSVG, mongodbSVG, mysqlSVG];
-final List<Widget> toolsIcons = [vscodeSVG, intellijSVG,postmanSVG,linuxSVG ];
+final List<Widget> toolsIcons = [vscodeSVG, intellijSVG, postmanSVG,linuxSVG ];
 
 // Gradient
 var myGradient = LinearGradient(colors: [
