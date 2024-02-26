@@ -21,18 +21,6 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Consumer<ThemeProvider>(
-  //     builder: (context, value, child) {
-  //       return MaterialApp(
-  //           title: "Ghassan's Portfolio",
-  //           debugShowCheckedModeBanner: false,
-  //           theme: Provider.of<ThemeProvider>(context).themeData,
-  //           home: const HomePage());
-  //     },
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {

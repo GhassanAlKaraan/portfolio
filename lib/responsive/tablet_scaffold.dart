@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/resources/color_manager.dart';
+import 'package:my_portfolio/resources/theme_manager.dart';
+import 'package:my_portfolio/resources/theme_provider.dart';
+import 'package:my_portfolio/widgets/custom_switch.dart';
 import 'package:my_portfolio/widgets/dbs_card.dart';
 import 'package:my_portfolio/widgets/flutterleb_card.dart';
 import 'package:my_portfolio/widgets/github_card.dart';
@@ -10,34 +14,66 @@ import 'package:my_portfolio/widgets/projects_card.dart';
 import 'package:my_portfolio/widgets/theme_switch_card.dart';
 import 'package:my_portfolio/widgets/title_card.dart';
 import 'package:my_portfolio/widgets/tools_card.dart';
+import 'package:provider/provider.dart';
 import '../resources/constants.dart';
 import '../widgets/contact_row.dart';
 
-class TabletScaffold extends StatelessWidget {
+class TabletScaffold extends StatefulWidget {
   const TabletScaffold({super.key});
 
   @override
+  State<TabletScaffold> createState() => _TabletScaffoldState();
+}
+
+class _TabletScaffoldState extends State<TabletScaffold> {
+  bool _isToggled = false;
+
+  bool isLightTheme() {
+    if (Provider.of<ThemeProvider>(context).themeData == lightTheme) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    _isToggled = isLightTheme() ? false : true;
     final size = MediaQuery.of(context).size.width;
     double extra = size - 500;
     double padding = mobileScaffoldSizePadding + extra / 4;
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: padding
-
-              // mobileScaffoldSizePadding
-
-              ),
-          child: SingleChildScrollView(
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: padding),
             child: Column(
               children: [
                 // Contact Button
-                const ContactRow(), //*
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: CustomSwitch(
+                        value: _isToggled,
+                        activeColor: ColorManager.bgSwitch,
+                        inactiveColor: ColorManager.background,
+                        thumbSize: 36,
+                        onToggle: (value) {
+                          setState(() {
+                            _isToggled = value;
+                          });
+                        },
+                      ),
+                    ),
+                    const ContactRow(),
+                  ],
+                ),
                 const SizedBox(height: 15),
                 const SizedBox(
                     width: double.infinity,
-                    child: AspectRatio(aspectRatio: 2, child: TitleCard())), //*
+                    child: AspectRatio(aspectRatio: 2, child: TitleCard())),
                 AspectRatio(
                   aspectRatio: 2,
                   child: Row(
@@ -46,9 +82,9 @@ class TabletScaffold extends StatelessWidget {
                       const AspectRatio(aspectRatio: 1, child: PhotoCard()),
                     ],
                   ),
-                ), //*
+                ),
                 const SizedBox(
-                    child: AspectRatio(aspectRatio: 2, child: JobsCard())), //*
+                    child: AspectRatio(aspectRatio: 2, child: JobsCard())),
                 const AspectRatio(
                   aspectRatio: 1,
                   child: Row(
@@ -79,6 +115,7 @@ class TabletScaffold extends StatelessWidget {
                     child: SizedBox(
                       width: cardSquareSide,
                       child: GridView(
+                        physics: const NeverScrollableScrollPhysics(),
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2),

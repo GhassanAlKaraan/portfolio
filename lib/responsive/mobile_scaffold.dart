@@ -20,10 +20,10 @@ class MobileScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
-        body: Padding(
-          padding:
-              const EdgeInsets.symmetric(horizontal: mobileScaffoldSizePadding),
-          child: SingleChildScrollView(
+        body: SingleChildScrollView(
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: mobileScaffoldSizePadding),
             child: Column(
               children: [
                 // Contact Button
@@ -59,6 +59,7 @@ class MobileScaffold extends StatelessWidget {
                     child: SizedBox(
                       width: cardSquareSide,
                       child: GridView(
+                        physics: const NeverScrollableScrollPhysics(),
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2),
