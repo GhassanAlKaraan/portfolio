@@ -26,6 +26,7 @@ static Color hoverColor = const Color.fromARGB(197, 194, 194, 194);
 static Color disSwitch = HexColor.fromHex("#FFFFFF");
 static Color enSwitch = HexColor.fromHex("#3A3B3C");
 static Color bgSwitch = HexColor.fromHex("#0F0F10");
+static Color inactiveSwitch = HexColor.fromHex("#E6E4E4");
 
 
 static Color jobDuration = HexColor.fromHex("#756E77");

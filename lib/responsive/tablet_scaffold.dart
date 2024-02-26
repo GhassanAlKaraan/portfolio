@@ -58,7 +58,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                       child: CustomSwitch(
                         value: _isToggled,
                         activeColor: ColorManager.bgSwitch,
-                        inactiveColor: ColorManager.background,
+                        inactiveColor: ColorManager.inactiveSwitch,
                         thumbSize: 36,
                         onToggle: (value) {
                           setState(() {
