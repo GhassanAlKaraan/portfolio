@@ -22,10 +22,10 @@ const double githubIconSize = 100;
 /// Assets
 
 // Retro game icons
-const String ghost1 = 'icons/retro-icons/ghost1.png';
-const String ghost2 = 'icons/retro-icons/ghost2.png';
-const String pacman = 'icons/retro-icons/pacman.png';
-const String spaceBug = 'icons/retro-icons/space-bug.png';
+const String ghost1 = 'icons/ghost1.png';
+const String ghost2 = 'icons/ghost2.png';
+const String pacman = 'icons/pacman.png';
+const String spaceBug = 'icons/space-bug.png';
 
 
 
