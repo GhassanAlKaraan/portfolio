@@ -28,7 +28,7 @@ class TabletScaffold extends StatefulWidget {
 
 class _TabletScaffoldState extends State<TabletScaffold> {
 
-  bool _isToggled = false;
+  bool _isToggled = true;
 
   bool isLightTheme() {
     if (Provider.of<ThemeProvider>(context).themeData == lightTheme) {

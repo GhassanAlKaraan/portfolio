@@ -14,7 +14,7 @@ class ThemeSwitchCard extends StatefulWidget {
 }
 
 class _ThemeSwitchCardState extends State<ThemeSwitchCard> {
-  bool _isToggled = false;
+  bool _isToggled = true;
 
   bool isLightTheme(){
     if(Provider.of<ThemeProvider>(context).themeData == lightTheme){
