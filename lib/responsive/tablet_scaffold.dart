@@ -18,6 +18,7 @@ import 'package:provider/provider.dart';
 import '../resources/constants.dart';
 import '../widgets/contact_row.dart';
 
+
 class TabletScaffold extends StatefulWidget {
   const TabletScaffold({super.key});
 
@@ -26,6 +27,7 @@ class TabletScaffold extends StatefulWidget {
 }
 
 class _TabletScaffoldState extends State<TabletScaffold> {
+
   bool _isToggled = false;
 
   bool isLightTheme() {
@@ -106,7 +108,7 @@ class _TabletScaffoldState extends State<TabletScaffold> {
                     ],
                   ),
                 ),
-
+        
                 SizedBox(
                   // width: cardSquareSide,
                   width: double.infinity,

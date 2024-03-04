@@ -17,6 +17,8 @@ import 'package:my_portfolio/widgets/tools_card.dart';
 import 'package:provider/provider.dart';
 import '../resources/constants.dart';
 import '../widgets/contact_row.dart';
+import 'package:web_smooth_scroll/web_smooth_scroll.dart';
+
 
 class DesktopScaffold extends StatefulWidget {
   const DesktopScaffold({super.key});
@@ -26,6 +28,18 @@ class DesktopScaffold extends StatefulWidget {
 }
 
 class _DesktopScaffoldState extends State<DesktopScaffold> {
+  
+  // Controllers
+  late ScrollController _scrollController;
+
+  @override
+  void initState() {
+    // initialize scroll controllers
+    _scrollController = ScrollController();
+
+    super.initState();
+  }
+
   bool _isToggled = false;
 
   bool isLightTheme() {
@@ -45,104 +59,108 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
         mobileScaffoldSizePadding + extra / 3; // change the value /3 if desired
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: padding),
-            child: Column(
-              children: [
-                // Contact Button
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: CustomSwitch(
-                        value: _isToggled,
-                        activeColor: ColorManager.bgSwitch,
-                        inactiveColor: ColorManager.inactiveSwitch,
-                        thumbSize: 36,
-                        onToggle: (value) {
-                          setState(() {
-                            _isToggled = value;
-                          });
-                        },
-                      ),
-                    ),
-                    const ContactRow(),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                const SizedBox(
-                    width: double.infinity,
-                    child:
-                        AspectRatio(aspectRatio: 2.4, child: TitleCard())),
-                AspectRatio(
-                  aspectRatio: 2,
-                  child: Row(
+        body: WebSmoothScroll(
+          controller: _scrollController,
+          animationDuration: 500,
+          scrollOffset: 60,
+          child: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
+            controller: _scrollController,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: padding),
+              child: Column(
+                children: [
+                  // Contact Button
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      AspectRatio(aspectRatio: 1, child: ProjectsCard()),
-                      const AspectRatio(aspectRatio: 1, child: PhotoCard()),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                    child:
-                        AspectRatio(aspectRatio: 2.5, child: JobsCard())),
-                const AspectRatio(
-                  aspectRatio: 1,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 1 / 2,
-                          child: Column(
-                            children: [
-                              AspectRatio(
-                                  aspectRatio: 1, child: LangsCard()),
-                              AspectRatio(aspectRatio: 1, child: DBsCard()),
-                            ],
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8),
+                        child: CustomSwitch(
+                          value: _isToggled,
+                          activeColor: ColorManager.bgSwitch,
+                          inactiveColor: ColorManager.inactiveSwitch,
+                          thumbSize: 36,
+                          onToggle: (value) {
+                            setState(() {
+                              _isToggled = value;
+                            });
+                          },
                         ),
                       ),
-                      Expanded(
-                          child: AspectRatio(
-                              aspectRatio: 1 / 2, child: ToolsCard())),
+                      const ContactRow(),
                     ],
                   ),
-                ),
-            
-                SizedBox(
-                  // width: cardSquareSide,
-                  width: double.infinity,
-                  child: AspectRatio(
+                  const SizedBox(height: 15),
+                  const SizedBox(
+                      width: double.infinity,
+                      child: AspectRatio(aspectRatio: 2.4, child: TitleCard())),
+                  AspectRatio(
+                    aspectRatio: 2,
+                    child: Row(
+                      children: [
+                        AspectRatio(aspectRatio: 1, child: ProjectsCard()),
+                        const AspectRatio(aspectRatio: 1, child: PhotoCard()),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                      child: AspectRatio(aspectRatio: 2.5, child: JobsCard())),
+                  const AspectRatio(
                     aspectRatio: 1,
-                    child: SizedBox(
-                      width: cardSquareSide,
-                      child: GridView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2),
-                        children: [
-                          LinkedinCard(
-                            showArrow: true,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: AspectRatio(
+                            aspectRatio: 1 / 2,
+                            child: Column(
+                              children: [
+                                AspectRatio(aspectRatio: 1, child: LangsCard()),
+                                AspectRatio(aspectRatio: 1, child: DBsCard()),
+                              ],
+                            ),
                           ),
-                          GithubCard(
-                            showArrow: true,
-                          ),
-                          FlutterLebCard(
-                            showInfo: true,
-                          ),
-                          const ThemeSwitchCard(),
-                        ],
+                        ),
+                        Expanded(
+                            child: AspectRatio(
+                                aspectRatio: 1 / 2, child: ToolsCard())),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(
+                    // width: cardSquareSide,
+                    width: double.infinity,
+                    child: AspectRatio(
+                      aspectRatio: 1,
+                      child: SizedBox(
+                        width: cardSquareSide,
+                        child: GridView(
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2),
+                          children: [
+                            LinkedinCard(
+                              showArrow: true,
+                            ),
+                            GithubCard(
+                              showArrow: true,
+                            ),
+                            FlutterLebCard(
+                              showInfo: true,
+                            ),
+                            const ThemeSwitchCard(),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                )
-              ],
+                  const SizedBox(
+                    height: 20,
+                  )
+                ],
+              ),
             ),
           ),
         ));

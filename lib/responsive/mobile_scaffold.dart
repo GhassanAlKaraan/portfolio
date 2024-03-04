@@ -22,8 +22,8 @@ class MobileScaffold extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.background,
         body: SingleChildScrollView(
           child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: mobileScaffoldSizePadding),
+            padding: const EdgeInsets.symmetric(
+                horizontal: mobileScaffoldSizePadding),
             child: Column(
               children: [
                 // Contact Button
@@ -34,7 +34,8 @@ class MobileScaffold extends StatelessWidget {
                     child: AspectRatio(aspectRatio: 1, child: TitleCard())),
                 SizedBox(
                     width: double.infinity,
-                    child: AspectRatio(aspectRatio: 1, child: ProjectsCard())),
+                    child:
+                        AspectRatio(aspectRatio: 1, child: ProjectsCard())),
                 const SizedBox(
                     width: double.infinity,
                     child: AspectRatio(aspectRatio: 1, child: PhotoCard())),
