@@ -42,11 +42,19 @@ var myTitleText = LayoutBuilder(
   },
 );
 
-jobJconLogo(path) => LayoutBuilder(
+jobIconLogo(path) => LayoutBuilder(
       builder: (context, constraints) {
         double size;
 
-        size = constraints.maxWidth > minScreenWidth ? 80 : 60;
+        // size = constraints.maxWidth > minScreenWidth ? 80 : 60;
+
+        if(constraints.maxWidth > tabletWidth){
+          size = 100;
+        } else if(constraints.maxWidth > minScreenWidth){
+          size = 80;
+        } else{
+          size = 60;
+        }
 
         return Image.asset(path, width: size + 20, height: size);
       },

@@ -21,6 +21,7 @@ class _JobsCardState extends State<JobsCard> {
           child: Center(
             child: Column(
               children: [
+                //! aesthetics
                 if (size >= 500 && size <= 555)
                   const SizedBox(height: 0)
                 else
@@ -29,17 +30,27 @@ class _JobsCardState extends State<JobsCard> {
                 size < mobileWidth
                     ? const SizedBox(height: 10)
                     : const SizedBox(),
-                size < mobileWidth
-                    ? const Column(
+                //!    
+                if(size < mobileWidth )
+                    const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [GTSjob(), SizedBox(width: 40), MMjob()],
                       )
-                    : const Row(
+                else if (size >=tabletWidth)
+                      const Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [SizedBox(height: 60),GTSjob(), SizedBox(height: 40), MMjob()],
+                      )
+                else const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [GTSjob(), SizedBox(width: 80), MMjob()],
                       ),
+                
+
+
                 const SizedBox(height: 20),
               ],
             ),
@@ -60,7 +71,7 @@ class _GTSjobState extends State<GTSjob> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        jobJconLogo(gtsLogoPath),
+        jobIconLogo(gtsLogoPath),
         jobTitleText(gtsJobTitle),
         const SizedBox(height: 8),
         jobDurationText(gtsDuration)
@@ -81,7 +92,7 @@ class _MMjobState extends State<MMjob> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        jobJconLogo(mmLogoPath),
+        jobIconLogo(mmLogoPath),
         jobTitleText(mmJobTitle),
         const SizedBox(height: 8),
         jobDurationText(mmDuration)
