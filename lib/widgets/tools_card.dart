@@ -24,7 +24,7 @@ class ToolsCard extends StatelessWidget {
                     child: const Padding(
                         padding: EdgeInsets.all(cardPadding + 20),
                         child: MyGridViewBuilder())),
-                size >= 500
+                size >= 500 && size <= 1000
                     ? Expanded(flex: 5, child: Image.asset(colorfulLaptopPath))
                     : Container()
                 //const SizedBox(height: 20),
@@ -44,7 +44,7 @@ class MyGridViewBuilder extends StatelessWidget {
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: size >= 500 ? 2 : 3,
+        crossAxisCount: size>= 1000 ? 4 : size >= 500 ? 2 : 3,
         mainAxisSpacing: 15.0, // Vertical spacing between items
         crossAxisSpacing: 10.0, // Horizontal spacing between items
         childAspectRatio:

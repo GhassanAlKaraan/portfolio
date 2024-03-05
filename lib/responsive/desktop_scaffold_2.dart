@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/theme_manager.dart';
 import 'package:my_portfolio/resources/theme_provider.dart';
 import 'package:my_portfolio/widgets/custom_switch.dart';
+import 'package:my_portfolio/widgets/dbs_card.dart';
+import 'package:my_portfolio/widgets/flutterleb_card.dart';
+import 'package:my_portfolio/widgets/github_card.dart';
 import 'package:my_portfolio/widgets/jobs_card.dart';
+import 'package:my_portfolio/widgets/langs_card.dart';
+import 'package:my_portfolio/widgets/linkedin_card.dart';
 import 'package:my_portfolio/widgets/photo_card.dart';
 import 'package:my_portfolio/widgets/projects_card.dart';
+import 'package:my_portfolio/widgets/theme_switch_card.dart';
 import 'package:my_portfolio/widgets/title_card.dart';
+import 'package:my_portfolio/widgets/tools_card.dart';
 import 'package:provider/provider.dart';
 import '../resources/constants.dart';
 import '../widgets/contact_row.dart';
@@ -35,7 +41,8 @@ class _DesktopScaffold2State extends State<DesktopScaffold2> {
     _isToggled = isLightTheme() ? false : true;
     final size = MediaQuery.of(context).size.width;
     double extra = size - 500;
-    double padding = mobileScaffoldSizePadding + extra / 5; // change the value /3 if desired
+    double padding =
+        mobileScaffoldSizePadding + extra / 5; // change the value /3 if desired
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
         body: SingleChildScrollView(
@@ -66,8 +73,9 @@ class _DesktopScaffold2State extends State<DesktopScaffold2> {
                 ),
                 const SizedBox(height: 15),
 
-                AspectRatio( //! Father #1
-                  aspectRatio: 3/2,
+                AspectRatio(
+                  //* Father #1 Good
+                  aspectRatio: 3 / 2,
                   child: Row(
                     // == |
                     // ++ |
@@ -78,15 +86,19 @@ class _DesktopScaffold2State extends State<DesktopScaffold2> {
                           aspectRatio: 1,
                           child: Column(
                             children: [
-                              //! name and title
-                              const AspectRatio( aspectRatio: 2, child: TitleCard()),
-                              
-                              //! projects and mypic
+                              // name and title
+                              const AspectRatio(
+                                  aspectRatio: 2, child: TitleCard()),
+
+                              // projects and mypic
                               AspectRatio(
                                 aspectRatio: 2,
-                                child: Row(children: [
-                                    AspectRatio(aspectRatio: 1, child: ProjectsCard()), 
-                                    const AspectRatio( aspectRatio: 1, child: PhotoCard()),
+                                child: Row(
+                                  children: [
+                                    AspectRatio(
+                                        aspectRatio: 1, child: ProjectsCard()),
+                                    const AspectRatio(
+                                        aspectRatio: 1, child: PhotoCard()),
                                   ],
                                 ),
                               ),
@@ -94,64 +106,85 @@ class _DesktopScaffold2State extends State<DesktopScaffold2> {
                           ),
                         ),
                       ),
-                      //! Jobs
+                      // Jobs
                       const Expanded(
-                        flex: 1,
-                        child: AspectRatio(aspectRatio: 0.5, child: JobsCard())),
+                          flex: 1,
+                          child:
+                              AspectRatio(aspectRatio: 0.5, child: JobsCard())),
                     ],
                   ),
                 ),
 
-                // const AspectRatio(
-                //   aspectRatio: 1,
-                //   child: Row(
-                //     children: [
-                //       Expanded(
-                //         child: AspectRatio(
-                //           aspectRatio: 1 / 2,
-                //           child: Column(
-                //             children: [
-                //               AspectRatio(aspectRatio: 1, child: LangsCard()),
-                //               AspectRatio(aspectRatio: 1, child: DBsCard()),
-                //             ],
-                //           ),
-                //         ),
-                //       ),
-                //       Expanded(
-                //           child: AspectRatio(
-                //               aspectRatio: 1 / 2, child: ToolsCard())),
-                //     ],
-                //   ),
-                // ),
+                AspectRatio(
+                  //* Father #2 Good
+                  aspectRatio: 3 / 2,
+                  child: Row(
+                    // == |
+                    // ++ |
+                    children: [
+                      const Expanded(
+                          flex: 1,
+                          child: // Langs and DB
+                              AspectRatio(
+                            aspectRatio: 0.5,
+                            child: Column(
+                              children: [
+                                AspectRatio(aspectRatio: 1, child: LangsCard()),
+                                AspectRatio(aspectRatio: 1, child: DBsCard()),
+                              ],
+                            ),
+                          )),
+                      Expanded(
+                        flex: 2,
+                        child: AspectRatio(
+                          aspectRatio: 1,
+                          child: Column(
+                            children: [
+                              // tools
+                              const AspectRatio(
+                                  aspectRatio: 2, child: ToolsCard()),
 
-                // SizedBox(
-                //   // width: cardSquareSide,
-                //   width: double.infinity,
-                //   child: AspectRatio(
-                //     aspectRatio: 1,
-                //     child: SizedBox(
-                //       width: cardSquareSide,
-                //       child: GridView(
-                //         physics: const NeverScrollableScrollPhysics(),
-                //         gridDelegate:
-                //             const SliverGridDelegateWithFixedCrossAxisCount(
-                //                 crossAxisCount: 2),
-                //         children: [
-                //           LinkedinCard(
-                //             showArrow: true,
-                //           ),
-                //           GithubCard(
-                //             showArrow: true,
-                //           ),
-                //           FlutterLebCard(
-                //             showInfo: true,
-                //           ),
-                //           const ThemeSwitchCard(),
-                //         ],
-                //       ),
-                //     ),
-                //   ),
-                // ),
+                              // Linkedin and github
+                              AspectRatio(
+                                aspectRatio: 2,
+                                child: Row(
+                                  children: [
+                                    AspectRatio(
+                                        aspectRatio: 1,
+                                        child: LinkedinCard(
+                                          showArrow: true,
+                                        )),
+                                    AspectRatio(
+                                        aspectRatio: 1,
+                                        child: GithubCard(
+                                          showArrow: true,
+                                        )),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      // Jobs
+                    ],
+                  ),
+                ),
+                AspectRatio(
+                  aspectRatio: 3,
+                  child: Row(
+                    children: [
+                      AspectRatio(
+                        aspectRatio: 1,
+                        child: FlutterLebCard(showInfo: true),
+                      ),
+                      const AspectRatio(
+                        aspectRatio: 1,
+                        child: ThemeSwitchCard(),
+                      ),
+                    ],
+                  ),
+                ),
                 const SizedBox(
                   height: 40,
                 )
