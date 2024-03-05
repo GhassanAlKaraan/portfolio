@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hyper_effects/hyper_effects.dart';
 import 'package:my_portfolio/resources/color_manager.dart';
 import 'package:my_portfolio/resources/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -37,6 +38,44 @@ final bool showArrow;
                   width: githubIconSize,
                 ),
               ),
+            ),
+          ),
+
+           Container(
+            //! Animation container
+            margin: const EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              borderRadius: cardBorderRadius,
+            ),
+            clipBehavior: Clip.antiAlias,
+            child: Transform.scale(
+              scale: 2,
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: RadialGradient(
+                    colors: [
+                      Colors.white.withOpacity(0.2),
+                      Colors.white.withOpacity(0),
+                    ],
+                  ),
+                ),
+              ),
+            ).pointerTransition(
+              transitionBetweenBounds: false,
+              resetOnExitBounds: false,
+              (context, child, event) => child
+                  .opacity(
+                    event.isInsideBounds ? 1 : 0,
+                  )
+                  .animate(
+                    trigger: event.isInsideBounds,
+                    duration: const Duration(milliseconds: 150),
+                  )
+                  .translateXY(
+                    event.valueOffset.dx / 2,
+                    event.valueOffset.dy / 2,
+                    fractional: true,
+                  ),
             ),
           ),
 

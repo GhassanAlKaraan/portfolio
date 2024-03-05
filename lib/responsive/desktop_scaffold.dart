@@ -41,10 +41,7 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
   @override
   Widget build(BuildContext context) {
     _isToggled = isLightTheme() ? false : true;
-    final size = MediaQuery.of(context).size.width;
-    double extra = size - 500;
-    double padding =
-        mobileScaffoldSizePadding + extra / 3; // change the value /3 if desired
+    double padding = mobileScaffoldSizePadding;
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
         body: SingleChildScrollView(
