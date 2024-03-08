@@ -2,6 +2,8 @@
 
 Portfolio made with Flutter.
 
-## Command to build release version
+## To build release version
+
+`flutter clean` \
 
 `flutter build web --web-renderer html --release`

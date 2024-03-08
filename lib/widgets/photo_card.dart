@@ -185,8 +185,8 @@ class _PhotoCardState extends State<PhotoCard> {
               colorFilter: !isHovered
                   ? const ColorFilter.matrix([
                       0.7, 0.2, 0.1, 0, 0,  // Red
-                      0.2, 0.7, 0.1, 0, 0,  // Green
-                      0.2, 0.2, 0.6, 0, 0,  // Blue
+                      0.1, 0.7, 0.1, 0, 0,  // Green
+                      0.1, 0.1, 0.7, 0, 0,  // Blue
                       0, 0, 0, 1, 0,       // Alpha
                     ])
                   : null, // Full color when hovered

@@ -3,9 +3,6 @@ import 'package:flutter_svg/svg.dart';
 
 // Sizes
 
-
-
-
 const double mobileScaffoldSizePadding = 20;
 const double tabletScaffoldSizePadding = 50;
 const double cardPadding = 12.0;
@@ -22,10 +19,8 @@ const double githubIconSize = 100;
 /// Assets
 
 // Retro game icons
-const String ghost1 = 'icons/ghost1.png';
-const String ghost2 = 'icons/ghost2.png';
-const String pacman = 'icons/pacman.png';
-const String spaceBug = 'icons/space-bug.png';
+const String pattern1 = 'assets/patterns/geometry.png';
+const String pattern2 = 'assets/patterns/gplay.png';
 
 
 

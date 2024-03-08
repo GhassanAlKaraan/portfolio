@@ -46,103 +46,114 @@ class _TabletScaffoldState extends State<TabletScaffold> {
     double padding = mobileScaffoldSizePadding + extra / 4;
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: padding),
-            child: Column(
-              children: [
-                // Contact Button
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        body: Stack(
+          children: [
+            Positioned.fill(
+              child: Image.asset(
+            pattern1,
+            repeat: ImageRepeat.repeat,
+            colorBlendMode: BlendMode.plus,
+          )),
+            Positioned.fill(
+              child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: padding),
+                child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: CustomSwitch(
-                        value: _isToggled,
-                        activeColor: ColorManager.bgSwitch,
-                        inactiveColor: ColorManager.inactiveSwitch,
-                        thumbSize: 36,
-                        onToggle: (value) {
-                          setState(() {
-                            _isToggled = value;
-                          });
-                        },
+                    // Contact Button
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8),
+                          child: CustomSwitch(
+                            value: _isToggled,
+                            activeColor: ColorManager.bgSwitch,
+                            inactiveColor: ColorManager.inactiveSwitch,
+                            thumbSize: 36,
+                            onToggle: (value) {
+                              setState(() {
+                                _isToggled = value;
+                              });
+                            },
+                          ),
+                        ),
+                        const ContactRow(),
+                      ],
+                    ),
+                    const SizedBox(height: 15),
+                    const SizedBox(
+                        width: double.infinity,
+                        child: AspectRatio(aspectRatio: 2, child: TitleCard())),
+                    AspectRatio(
+                      aspectRatio: 2,
+                      child: Row(
+                        children: [
+                          AspectRatio(aspectRatio: 1, child: ProjectsCard()),
+                          const AspectRatio(aspectRatio: 1, child: PhotoCard()),
+                        ],
                       ),
                     ),
-                    const ContactRow(),
-                  ],
-                ),
-                const SizedBox(height: 15),
-                const SizedBox(
-                    width: double.infinity,
-                    child: AspectRatio(aspectRatio: 2, child: TitleCard())),
-                AspectRatio(
-                  aspectRatio: 2,
-                  child: Row(
-                    children: [
-                      AspectRatio(aspectRatio: 1, child: ProjectsCard()),
-                      const AspectRatio(aspectRatio: 1, child: PhotoCard()),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                    child: AspectRatio(aspectRatio: 2, child: JobsCard())),
-                const AspectRatio(
-                  aspectRatio: 1,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 1 / 2,
-                          child: Column(
+                    const SizedBox(
+                        child: AspectRatio(aspectRatio: 2, child: JobsCard())),
+                    const AspectRatio(
+                      aspectRatio: 1,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: AspectRatio(
+                              aspectRatio: 1 / 2,
+                              child: Column(
+                                children: [
+                                  AspectRatio(aspectRatio: 1, child: LangsCard()),
+                                  AspectRatio(aspectRatio: 1, child: DBsCard()),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                              child: AspectRatio(
+                                  aspectRatio: 1 / 2, child: ToolsCard())),
+                        ],
+                      ),
+                    ),
+                        
+                    SizedBox(
+                      // width: cardSquareSide,
+                      width: double.infinity,
+                      child: AspectRatio(
+                        aspectRatio: 1,
+                        child: SizedBox(
+                          width: cardSquareSide,
+                          child: GridView(
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2),
                             children: [
-                              AspectRatio(aspectRatio: 1, child: LangsCard()),
-                              AspectRatio(aspectRatio: 1, child: DBsCard()),
+                              LinkedinCard(
+                                showArrow: true,
+                              ),
+                              GithubCard(
+                                showArrow: true,
+                              ),
+                              FlutterLebCard(
+                                showInfo: true,
+                              ),
+                              const ThemeSwitchCard(),
                             ],
                           ),
                         ),
                       ),
-                      Expanded(
-                          child: AspectRatio(
-                              aspectRatio: 1 / 2, child: ToolsCard())),
-                    ],
-                  ),
-                ),
-        
-                SizedBox(
-                  // width: cardSquareSide,
-                  width: double.infinity,
-                  child: AspectRatio(
-                    aspectRatio: 1,
-                    child: SizedBox(
-                      width: cardSquareSide,
-                      child: GridView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2),
-                        children: [
-                          LinkedinCard(
-                            showArrow: true,
-                          ),
-                          GithubCard(
-                            showArrow: true,
-                          ),
-                          FlutterLebCard(
-                            showInfo: true,
-                          ),
-                          const ThemeSwitchCard(),
-                        ],
-                      ),
                     ),
-                  ),
+                    const SizedBox(
+                      height: 20,
+                    )
+                  ],
                 ),
-                const SizedBox(
-                  height: 20,
-                )
-              ],
-            ),
-          ),
+              ),
+                        ),
+            ),]
         ));
   }
 }
